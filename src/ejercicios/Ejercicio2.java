@@ -19,5 +19,6 @@ public class Ejercicio2 {
 			System.out.println("La media es: " + hola.getMedia());
 			System.out.println("La suma total es: " + hola.getSuma());
 			
+			
 	}
 }

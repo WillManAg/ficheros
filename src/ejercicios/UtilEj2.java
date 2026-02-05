@@ -79,4 +79,73 @@ public class UtilEj2 {
 
 		}
 	}
+
+	public static boolean buscarNota(String nota, String notaBuscada) throws IOException {
+
+		BufferedReader fichero = null;
+		String linea, notaActual;
+		boolean encontrado = false;
+
+		try {
+
+			fichero = new BufferedReader(new FileReader(nota));
+
+			while ((linea = fichero.readLine()) != null && !encontrado) {
+
+				if (!linea.isEmpty()) {
+
+					notaActual = linea;
+
+					if (notaActual.equals(notaBuscada)) {
+						encontrado = true;
+					}
+				}
+			}
+
+		} finally {
+			if (fichero != null) {
+				fichero.close();
+			}
+		}
+
+		return encontrado;
+	}
+
+	public static void buscarNotaExtra(String nota, String notaBuscada) throws IOException {
+
+		BufferedReader fichero = null;
+		String linea, notaActual,notaSiguiente;
+
+		try {
+
+			fichero = new BufferedReader(new FileReader(nota));
+			notaActual=null;
+			notaSiguiente=null;
+			while ((linea = fichero.readLine()) != null) {
+
+
+					if (linea.equals(notaBuscada)) {
+						
+						notaSiguiente = fichero.readLine();
+						break;
+					}
+			notaActual = linea;
+				}
+
+		} finally {
+			if (fichero != null) {
+				fichero.close();
+			}
+		}
+		
+		if (notaActual == null && notaSiguiente == null) {
+			System.out.println("No hay nota anterior ni nota siguiente, " + linea + " es la única nota.");
+		} else if (notaActual != null && notaSiguiente != null) {
+			System.out.println("La nota anterior es: " + notaActual + " y la nota siguiente es: " + notaSiguiente);
+		} else if (notaActual != null && notaSiguiente == null) {
+			System.out.println("La nota anterior es: " + notaActual + " y no tiene nota siguiente");
+		} else if (notaActual == null && notaSiguiente != null) {
+			System.out.println("No hay nota anterior y la nota siguiente es: " + notaSiguiente);
+		}
+	}
 }
