@@ -148,4 +148,44 @@ public class UtilEj2 {
 			System.out.println("No hay nota anterior y la nota siguiente es: " + notaSiguiente);
 		}
 	}
+	
+	public static void crearFicheroMediaDeTres(String nota) throws IOException {
+		
+		BufferedReader inputStream = null;
+		PrintWriter outputStream = null;
+		String uno, dos, tres;
+		double media;
+		
+		if (!nota.isEmpty()) {
+			
+			try {
+				inputStream = new BufferedReader(new FileReader(nota));
+				outputStream = new PrintWriter(new FileWriter("mediaDeTres.txt"));
+				
+				while ((uno = inputStream.readLine()) != null) {
+					
+					dos = inputStream.readLine();
+					
+					tres = inputStream.readLine();
+					
+					media = (Double.parseDouble(uno) + Double.parseDouble(dos) + Double.parseDouble(tres)) / 3;
+					
+					outputStream.println(media);
+					
+				}
+				
+			} finally {
+				if(inputStream != null) {
+					inputStream.close();
+				}
+				if(outputStream != null) {
+					outputStream.close();
+				}
+			}
+			
+		}
+		
+		
+	}
+	
 }
