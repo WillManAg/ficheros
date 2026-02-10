@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 
 public class Ejercicio1 {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         Scanner teclado = new Scanner(System.in);
         PrintWriter outputStream = null;
 
@@ -32,7 +32,14 @@ public class Ejercicio1 {
 
             System.out.println("Fichero de notas creado.");
 
-        } finally {
+        } catch(IOException e) {
+        	System.out.println("Archivo no encontrado");
+        	e.printStackTrace();
+        }
+        
+        
+        
+        finally {
 
             teclado.close();
             if (outputStream != null) {
