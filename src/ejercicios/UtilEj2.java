@@ -57,6 +57,7 @@ public class UtilEj2 {
 
 			try {
 				inputStream = new BufferedReader(new FileReader("notas.txt"));
+				// recordar que si ponemos en la salida ("mayormedia.txt", true)
 				outputStream = new PrintWriter(new FileWriter("mayormedia.txt"));
 
 				while ((l = inputStream.readLine()) != null) {
@@ -168,9 +169,10 @@ public class UtilEj2 {
 					
 					tres = inputStream.readLine();
 					
+					if (dos != null && tres != null && !uno.isEmpty() && !dos.isEmpty() && !tres.isEmpty()) {
 					media = (Double.parseDouble(uno) + Double.parseDouble(dos) + Double.parseDouble(tres)) / 3;
-					
 					outputStream.println(media);
+					}
 					
 				}
 				
@@ -184,7 +186,6 @@ public class UtilEj2 {
 			}
 			
 		}
-		
 		
 	}
 	
