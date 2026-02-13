@@ -17,5 +17,4 @@ public class MiExcepcion extends Exception{
 		return "Código error: " + this.codigoError + super.getMessage();
 	}
 	
-	
 }
