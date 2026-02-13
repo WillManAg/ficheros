@@ -1,4 +1,4 @@
-package ejercicio6;
+package ejercicio6y7;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
